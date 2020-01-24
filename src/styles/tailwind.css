@@ -10641,11 +10641,45 @@ video {
 
 body {
   background-color: #EDF2F7;
+  color: #252A2E;
 }
 
 .svg-lg {
   width: 35px;
   height: 35px;
+}
+
+.top-50 {
+  top: 50%;
+}
+
+.btn{
+  padding: .5rem 1rem;
+  margin: .25rem;
+  border-radius: .25rem;
+  white-space: nowrap;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn:focus{
+  outline: none;
+}
+
+.btn:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+.btn-default{
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
+  /* color: #083F8A; */
+}
+
+.btn-default:hover, .active{
+  background-color: #5082F7 ;
+  color: #ffffff;
 }
 
 @media (min-width: 640px) {
