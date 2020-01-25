@@ -1,5 +1,4 @@
 import React from 'react';
-import Octicon, { star, primitiveDot } from 'octicons-react';
 
 function SearchResultList(props) {
     
