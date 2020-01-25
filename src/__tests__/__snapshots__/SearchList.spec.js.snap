@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchList component Matches the snapshot 1`] = `
+<div
+  className="border-t py-4"
+>
+  <div
+    className="flex pb-4"
+  >
+    <div
+      className="w-3/5"
+    >
+      <a
+        className="text-lg font-bold text-blue-600"
+        href="https://github.com/facebook/react"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        facebook/react
+      </a>
+    </div>
+    <div
+      className="w-1/5 flex items-center"
+    >
+      <svg
+        aria-hidden="true"
+        className="octicon octicon-primitive-dot mr-1"
+        height="16"
+        version="1.1"
+        viewBox="0 0 8 16"
+        width="8"
+      >
+        <path
+          d="M0 8c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4-4-1.8-4-4z"
+          fillRule="evenodd"
+        />
+      </svg>
+       
+      Javascript
+    </div>
+    <div
+      className="w-1/5 flex items-center"
+    >
+      <svg
+        aria-hidden="true"
+        className="octicon octicon-star mr-1"
+        height="16"
+        version="1.1"
+        viewBox="0 0 14 16"
+        width="14"
+      >
+        <path
+          d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
+          fillRule="evenodd"
+        />
+      </svg>
+       
+      142823
+    </div>
+  </div>
+  <div
+    className="mb-4"
+  >
+    Some description
+  </div>
+  <small>
+    Updated on 
+    Fri Jan 24 2020
+  </small>
+</div>
+`;

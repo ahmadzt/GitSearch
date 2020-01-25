@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import Github from './services/github';
 import ParseLink from 'parse-link-header';
-import Axios from 'axios';
 import Pagination from './components/Pagination';
 import CardTitle from './components/CardTitle';
 import SearchInput from './components/SearchInput';
@@ -20,14 +20,17 @@ function App() {
     first: {},
     last: {}
   });
-
   
   const searchRepo = async (params, currPage) => {
-    let response = await Axios.get(`https://api.github.com/search/repositories?per_page=10&page=${ currPage }&q=${ params }`);
+    let response = await Github.getRepo({
+      per_page: 10, 
+      page: currPage, 
+      q: params 
+    });
     let noItems = response.data.items.length > 0 ? false : true;
     let links = ParseLink(response.headers.link);
 
-    setMeta({...meta, ...links});
+    setMeta({ ...meta, ...links });
     setTotal(response.data.total_count);
     setResults(response.data.items);
     setNoResult(noItems);
@@ -78,7 +81,7 @@ function App() {
           <div className="flex justify-center">
             <Pagination 
               meta={ meta }
-              navigate={(e) => setPage(e)} />
+              navigate={ (e) => setPage(e) } />
           </div>
         </div>
       </div>

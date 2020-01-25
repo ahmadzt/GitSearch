@@ -6,18 +6,18 @@ function Pagination(props) {
 	return (
 		<ReactPaginate
 			previousLabel={<Octicon icon={ chevronLeft }/>}
-			nextLabel={<Octicon icon={ chevronRight }/>}
-			breakLabel={'...'}
-			breakClassName={'btn'}
+			nextLabel={ <Octicon icon={ chevronRight }/> }
+			breakLabel={ '...' }
+			breakClassName={ 'btn' }
 			pageCount={ Number(props.meta.last.page) }
-			marginPagesDisplayed={2}
-			pageRangeDisplayed={5}
-			onPageChange={(e) => props.navigate(e.selected+1)}
+			marginPagesDisplayed={ 2 }
+			pageRangeDisplayed={ 5 }
+			onPageChange={ (e) => props.navigate(e.selected+1) }
 			containerClassName="flex items-center"
 			pageClassName="btn btn-default"
 			previousClassName="btn btn-default"
 			nextClassName="btn btn-default"
-			activeClassName={'active'}
+			activeClassName={ 'active' }
 		/>
 	)
 }
