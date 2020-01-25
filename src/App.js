@@ -4,6 +4,7 @@ import ParseLink from 'parse-link-header';
 import Pagination from './components/Pagination';
 import CardTitle from './components/CardTitle';
 import SearchInput from './components/SearchInput';
+import ResultLoader from './components/SearchResultLoader';
 import ResultList from './components/SearchResultList';
 import ResultTotal from './components/SearchResultTotal';
 import ResultEmpty from './components/SearchEmptyResult';
@@ -11,6 +12,7 @@ import ResultEmpty from './components/SearchEmptyResult';
 function App() {
   const [total, setTotal] = useState(0);
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [noResult, setNoResult] = useState(false);
   const [search, setSearch] = useState("react");
   const [page, setPage] = useState(1);
@@ -23,13 +25,14 @@ function App() {
   
   const searchRepo = async (params, currPage) => {
     let response = await Github.getRepo({
-      per_page: 10, 
+      per_page: 10,
       page: currPage, 
       q: params 
     });
     let noItems = response.data.items.length > 0 ? false : true;
     let links = ParseLink(response.headers.link);
 
+    setLoading(false);
     setMeta({ ...meta, ...links });
     setTotal(response.data.total_count);
     setResults(response.data.items);
@@ -54,6 +57,8 @@ function App() {
   }
 
   useEffect(() => {
+    setLoading(true);
+
     let param = getUrlParam() 
       ? getUrlParam() 
       : search;
@@ -73,9 +78,10 @@ function App() {
               value={ search } 
               onChange={ updateOnSearch } />
           </form>
-          { !noResult && <ResultTotal total={ total }/> }
-          { noResult && <ResultEmpty searchKey={ search }/> }
-          { !noResult && results.map(function(object, i){
+          { loading && <ResultLoader/> }
+          { !loading && !noResult && <ResultTotal total={ total }/> }
+          { !loading && noResult && <ResultEmpty searchKey={ search }/> }
+          { !loading && !noResult && results.map(function(object, i){
             return <ResultList item={ object } key={ i } />;
           })}
           <div className="flex justify-center">
