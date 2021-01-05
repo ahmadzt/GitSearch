@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.9.1",
     "autoprefixer": "^9.7.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "moment": "^2.24.0",
     "octicons-react": "^1.0.0",
     "parse-link-header": "^1.0.1",
